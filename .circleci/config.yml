@@ -1,0 +1,22 @@
+version: 2.1
+orbs:
+  matlab: mathworks/matlab@0.7.1  
+jobs:
+  build:
+    machine:
+      image: 'ubuntu-2004:202111-02'
+    steps:
+      - checkout
+      - matlab/install 
+      - matlab/run-tests:
+          test-results-junit: artifacts/test_results/matlab/results.xml
+          code-coverage-cobertura: artifacts/coverage/codeCoverage.xml          
+          source-folder: .;src
+      - store_test_results:
+          path: artifacts/test_results
+      - store_artifacts:
+          path: artifacts/
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
