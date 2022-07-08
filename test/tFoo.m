@@ -2,8 +2,7 @@ classdef tFoo < matlab.unittest.TestCase
   methods(Test)
    function testFnCall(test)
       %test code
-      res = sourceFunction();
-      helper.helperFoo();
+      res = sample();
       test.verifyEqual(res,'hello');
    end
   end
